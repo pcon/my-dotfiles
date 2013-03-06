@@ -1,0 +1,10 @@
+[app] (name=fbrun)
+  [Position]	(CENTER)	{0 0}
+  [Layer]	{2}
+[end]
+[app] (name=google-chrome) (class=Google-chrome) (role=browser)
+  [Head]	{1}
+  [Position]	(UPPERLEFT)	{326 133}
+  [Sticky]	{yes}
+  [Close]	{yes}
+[end]
