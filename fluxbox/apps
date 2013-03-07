@@ -4,7 +4,7 @@
 [end]
 [app] (name=google-chrome) (class=Google-chrome) (role=browser)
   [Head]	{1}
-  [Position]	(UPPERLEFT)	{326 133}
+  [Position]	(UPPERLEFT)	{1021 0}
   [Sticky]	{yes}
   [Close]	{yes}
 [end]
