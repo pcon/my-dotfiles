@@ -3,5 +3,7 @@ repository = ~/dotfiles
 ignore = [
 	'.git',
 	'.gitignore',
+	'.gitmodules',
 	'*.swp',
-	'setup.sh']
+	'setup.sh',
+	'README.md']
