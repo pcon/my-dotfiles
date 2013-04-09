@@ -20,8 +20,10 @@ nm-applet --sm-disable &
 gnome-power-manager &
 gnome-do &
 dropbox start&
-xscreensaver -nosplash&
+synergys&
 gnome-sound-applet&
+fbsetroot -solid black&
+xrandr --output HDMI-1 --left-of DVI-I-1 --output DVI-I-1 --primary&
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

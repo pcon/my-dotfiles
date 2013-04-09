@@ -17,7 +17,7 @@ window.font:							sans-8
 ########################################################### BACKGROUND ########
 
 background:							flat
-background.color:						#333333
+background.color:						#000000
 background.colorTo:						#000000
 
 ############################################################## MENU ###########

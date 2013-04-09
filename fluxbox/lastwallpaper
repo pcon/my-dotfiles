@@ -1,1 +1,2 @@
-fbsetroot|-foreground #1C232E -background #12233F -gradient flatgradientelliptic|style|:0.0
+fbsetroot|-foreground #073642 -background #073642 -gradient flatgradientelliptic|style|:1.0
+fbsetroot|-foreground #000000 -background #000000 -solid #000000|style|:0.0
