@@ -41,6 +41,7 @@ set smartcase
 
 set encoding=utf-8
 set fileencoding=utf-8
+set backspace=2
 
 set tw=0
 
@@ -75,5 +76,5 @@ au BufEnter *.trigger exec 'match Todo /\%>80v.\+/'
 au BufEnter *.page set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
 
 let g:Powerline_symbols = 'fancy'
-let g:snippets_dir = '~/.vim/snippets'
+let g:snippets_dir = '~/.vim/snippets,~/.vim/my_snippets'
 map <F6> :set list!<bar>set list?<cr>
