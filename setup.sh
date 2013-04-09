@@ -3,7 +3,7 @@ DFILES=dotfiles
 
 mkdir -p $HOME/.swp $HOME/.bak
 
-sudo yum -y install vim-enhanced pyflakes python-pip fontforge rhino git
+sudo yum -y install vim-enhanced pyflakes python-pip fontforge rhino git js
 sudo pip-python install dotfiles
 
 cd $HOME
