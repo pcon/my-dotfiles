@@ -56,6 +56,8 @@ autocmd FileType xml set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
 autocmd FileType html set nowrap
 autocmd BufRead,BufNewFile *.txt set tabstop=5 shiftwidth=5 wrap
 autocmd BufRead,BufNewFile mutt* set wrap spell spelllang=en_us spellfile=~/.vim/spellfile.add
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
