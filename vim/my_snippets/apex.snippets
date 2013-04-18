@@ -1,0 +1,66 @@
+snippet acls
+	${1:testAccount} = TestUtils.makeAccountHaveGroupACLs($1);
+
+snippet assertequals
+	System.assertEquals(${1:foo}, ${2:bar}, '${3:reason}');
+
+snippet batchlogs
+	Loggly.BATCH_LOGS = true;
+	Loggly logs = new Loggly();
+
+snippet group
+	${1:testCase} = TestUtils.setCaseGroup($1, ${2:testGroup});
+
+snippet internal
+	${1:internalContact} = TestUtils.makeContactInternal($1);
+
+snippet ise
+	APIUtils.generateExceptionForTesting();
+
+snippet orgadmin
+	${1:testContact} = TestUtils.makeContactOrgAdmin($1);
+
+snippet tcf
+	try {
+	} catch (Exception e) {
+		GenericUtils.reportException('', e, GenericUtils.ERROR);
+	} finally {
+		logs.flush();
+	}
+
+snippet tc
+	try {
+	} catch (Exception e) {
+	}
+
+snippet testaccount
+	Account ${1:testAccount} = TestUtils.getAccount();
+	insert $1;
+
+snippet testbase
+	String ssoName = '_unittest_sso_: 001';
+
+	Account testAccount = TestUtils.getAccount();
+	insert testAccount;
+
+	Contact testContact = TestUtils.getContactWithSSOName(testAccount, ssoName);
+	insert testContact;
+
+	Case testCase = TestUtils.getCase(testAccount);
+	insert testCase;
+
+	testCase = TestUtils.fetchCase(testCase);
+
+snippet testgroup
+	CaseFolder__c ${1:testGroup} = TestUtils.getGroup(${2:testAccount});
+	insert $1;
+
+snippet testmember
+	Group_Member__c ${1:testMember} = TestUtils.getGroupMember(${2:testGroup}, ${3:testContact});
+	insert $1;
+
+snippet test
+	static testMethod void valid() {
+		Test.startTest();
+		Test.stopTest();
+	}

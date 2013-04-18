@@ -32,12 +32,15 @@ set shiftwidth=5
 set softtabstop=5
 set shiftround
 set noexpandtab
-set noautoindent
+set autoindent
 set nosi
 
 " search and replace stuff
 set ignorecase
 set smartcase
+set hlsearch
+
+highlight Search ctermfg=Black ctermbg=Red cterm=NONE
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -70,13 +73,20 @@ highlight SpellLocal term=underline cterm=underline
 
 au BufWritePre * set binary noeol
 au BufWritePost * set nobinary eol
-au BufEnter *.py,*.cpp,*.c,*.h exec 'match Todo /\%>80v.\+/'
-au BufEnter *.cls set syntax=apex tabstop=4 shiftwidth=4 softtabstop=4 nowrap
-au BufEnter *.cls exec 'match Todo /\%>80v.\+/'
-au BufEnter *.trigger set syntax=apex tabstop=4 shiftwidth=4 softtabstop=4 nowrap
-au BufEnter *.trigger exec 'match Todo /\%>80v.\+/'
+"au BufEnter *.py,*.cpp,*.c,*.h exec 'match Todo /\%>80v.\+/'
+au BufEnter *.cls set syntax=apex tabstop=4 shiftwidth=4 softtabstop=4 nowrap filetype=apex
+"au BufEnter *.cls exec 'match Todo /\%>80v.\+/'
+au BufEnter *.trigger set syntax=apex tabstop=4 shiftwidth=4 softtabstop=4 nowrap filetype=apex
+"au BufEnter *.trigger exec 'match Todo /\%>80v.\+/'
 au BufEnter *.page set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
+au BufWritePre *.snippet set binary eol
+au BufWritePost *.snippet set binary eol
 
 let g:Powerline_symbols = 'fancy'
 let g:snippets_dir = '~/.vim/snippets,~/.vim/my_snippets'
-map <F6> :set list!<bar>set list?<cr>
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+nnoremap <F3> :set hlsearch!<CR>
+nnoremap <F6> :set list!<bar>set list?<cr>
+nnoremap <F7> :set foldmethod=indent<cr>
