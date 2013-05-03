@@ -82,6 +82,8 @@ au BufEnter *.page set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
 au BufWritePre *.snippet set binary eol
 au BufWritePost *.snippet set binary eol
 
+command TrailingWhitespace %s/\s\+$//
+
 let g:Powerline_symbols = 'fancy'
 let g:snippets_dir = '~/.vim/snippets,~/.vim/my_snippets'
 nnoremap <F2> :set invpaste paste?<CR>
