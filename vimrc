@@ -82,6 +82,10 @@ au BufEnter *.page set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
 au BufWritePre *.snippet set binary eol
 au BufWritePost *.snippet set binary eol
 
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 command TrailingWhitespace %s/\s\+$//
 
 let g:Powerline_symbols = 'fancy'

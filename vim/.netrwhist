@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/pcon/.vim'
 let g:netrw_dirhist_2='/home/pcon/.urxvt'
 let g:netrw_dirhist_3='/home/pcon/.vim'
+let g:netrw_dirhist_4='/home/pcon/solenopsis'
+let g:netrw_dirhist_5='/home/pcon/.solenopsis/credentials'
+let g:netrw_dirhist_6='/home/pcon/dotfiles/vim/my_snippets'

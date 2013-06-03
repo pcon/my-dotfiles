@@ -33,6 +33,12 @@ snippet tc
 	} catch (Exception e) {
 	}
 
+snippet testtc
+	try {
+	} catch (Exception e) {
+		System.assert(false, 'Got an exception we did not expect [' + e.getTypeName() + ': ' + e.getMessage());
+	}
+
 snippet testaccount
 	Account ${1:testAccount} = TestUtils.getAccount();
 	insert $1;
