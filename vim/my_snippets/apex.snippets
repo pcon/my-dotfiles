@@ -1,25 +1,18 @@
 snippet acls
 	${1:testAccount} = TestUtils.makeAccountHaveGroupACLs($1);
-
 snippet assertequals
 	System.assertEquals(${1:foo}, ${2:bar}, '${3:reason}');
-
 snippet batchlogs
 	Loggly.BATCH_LOGS = true;
 	Loggly logs = new Loggly();
-
 snippet group
 	${1:testCase} = TestUtils.setCaseGroup($1, ${2:testGroup});
-
 snippet internal
 	${1:internalContact} = TestUtils.makeContactInternal($1);
-
 snippet ise
 	APIUtils.generateExceptionForTesting();
-
 snippet orgadmin
 	${1:testContact} = TestUtils.makeContactOrgAdmin($1);
-
 snippet tcf
 	try {
 	} catch (Exception e) {
@@ -27,22 +20,24 @@ snippet tcf
 	} finally {
 		logs.flush();
 	}
-
 snippet tc
 	try {
 	} catch (Exception e) {
 	}
-
 snippet testtc
 	try {
+		System.assert(false, 'Should have thrown an exception by now');
+	} catch (Exception e) {
+		System.assertEquals(MSG, e.getMessage(), 'Got the right exception but the wrong message');
 	} catch (Exception e) {
 		System.assert(false, 'Got an exception we did not expect [' + e.getTypeName() + ': ' + e.getMessage());
 	}
-
 snippet testaccount
 	Account ${1:testAccount} = TestUtils.getAccount();
 	insert $1;
-
+snippet testcontact
+	Contact ${1:testContact} = TestUtils.getContact(${2:testAccount});
+	insert $1;
 snippet testbase
 	String ssoName = '_unittest_sso_: 001';
 
@@ -56,15 +51,12 @@ snippet testbase
 	insert testCase;
 
 	testCase = TestUtils.fetchCase(testCase);
-
 snippet testgroup
 	CaseFolder__c ${1:testGroup} = TestUtils.getGroup(${2:testAccount});
 	insert $1;
-
 snippet testmember
 	Group_Member__c ${1:testMember} = TestUtils.getGroupMember(${2:testGroup}, ${3:testContact});
 	insert $1;
-
 snippet test
 	static testMethod void valid() {
 		Test.startTest();

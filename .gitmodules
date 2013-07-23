@@ -20,3 +20,6 @@
 [submodule "vim/bundle/delmitmate"]
 	path = vim/bundle/delmitmate
 	url = git://github.com/Raimondi/delimitMate.git
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = http://github.com/Lokaltog/powerline.git
