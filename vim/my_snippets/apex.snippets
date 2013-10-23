@@ -9,6 +9,12 @@ snippet group
 	${1:testCase} = TestUtils.setCaseGroup($1, ${2:testGroup});
 snippet internal
 	${1:internalContact} = TestUtils.makeContactInternal($1);
+snippet private
+	${1:testCase} = TestUtils.makePrivate($1);
+snippet draft
+	${1:testComment} = TestUtils.makeCommentDraft($1);
+snippet owner
+	${1:testComment} = TestUtils.setCommentOwner($1, ${2:testContact});
 snippet ise
 	APIUtils.generateExceptionForTesting();
 snippet orgadmin
@@ -30,10 +36,18 @@ snippet testtc
 	} catch (Exception e) {
 		System.assertEquals(MSG, e.getMessage(), 'Got the right exception but the wrong message');
 	} catch (Exception e) {
-		System.assert(false, 'Got an exception we did not expect [' + e.getTypeName() + ': ' + e.getMessage());
+		System.assert(false, 'Got an exception we did not expect [' + e.getTypeName() + ': ' + e.getMessage() + ']');
 	}
 snippet testaccount
 	Account ${1:testAccount} = TestUtils.getAccount();
+	insert $1;
+snippet testcase
+	Case ${1:testCase} = TestUtils.getCase(${2:testAccount});
+	insert $1;
+snippet fetchcase
+	${1:testCase} = TestUtils.fetchCase($1);
+snippet testcomment
+	Case_Comment__c ${1:testComment} = TestUtils.getPublicComment(${2:testCase});
 	insert $1;
 snippet testcontact
 	Contact ${1:testContact} = TestUtils.getContact(${2:testAccount});

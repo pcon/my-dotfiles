@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/pcon/.vim'
-let g:netrw_dirhist_2='/home/pcon/.urxvt'
-let g:netrw_dirhist_3='/home/pcon/.vim'
-let g:netrw_dirhist_4='/home/pcon/solenopsis'
-let g:netrw_dirhist_5='/home/pcon/.solenopsis/credentials'
-let g:netrw_dirhist_6='/home/pcon/dotfiles/vim/my_snippets'
-let g:netrw_dirhist_7='/usr/share/solenopsis/scripts/templates'
-let g:netrw_dirhist_8='/home/pcon/solenopsis'
-let g:netrw_dirhist_9='/tmp/foo'
+let g:netrw_dirhist_cnt =0
