@@ -75,12 +75,6 @@ function report_status() {
 	fi
 }
 
-if [[ "$PE_ENV" != "" ]] ; then
-	export _PS1="\[$GREEN\]\D{%D %I:%M %p} (\$PE_ENV)\n\[$RED\]\u@\h \[$BLUE\]\w\[$NC\]\n\[$BLUE\][\[$NC\]\!\[$BLUE\]]\[$NC\] "
-else
-	export _PS1="\[$GREEN\]\D{%D %I:%M %p} \n\[$RED\]\u@\h \[$BLUE\]\w\[$NC\]\n\[$BLUE\][\[$NC\]\!\[$BLUE\]]\[$NC\] "
-fi
-
 export _PS1="\[$NC\][\u@\h \W]"
 export PS2="\[$NC\]> "
 export PROMPT_COMMAND='_status=$(report_status);export PS1="$(_git_prompt)${_status}${_PS1}\$ ";unset _status;'
