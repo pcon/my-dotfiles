@@ -9,6 +9,8 @@ snippet group
 	${1:testCase} = TestUtils.setCaseGroup($1, ${2:testGroup});
 snippet internal
 	${1:internalContact} = TestUtils.makeContactInternal($1);
+snippet secure
+	${1:internalContact} = TestUtils.makeContactSecureTech($1);
 snippet private
 	${1:testCase} = TestUtils.makePrivate($1);
 snippet draft
@@ -52,6 +54,9 @@ snippet testcomment
 snippet testcontact
 	Contact ${1:testContact} = TestUtils.getContact(${2:testAccount});
 	insert $1;
+snippet testattachment
+	File_Attachment__c ${1:testAttachment} = TestUtils.getPublicAttachment(${2:testCase});
+	insert $1;
 snippet testbase
 	String ssoName = '_unittest_sso_: 001';
 
@@ -76,3 +81,23 @@ snippet test
 		Test.startTest();
 		Test.stopTest();
 	}
+snippet testproduct
+	Product__c ${1:testProduct} = TestUtils.getRHProduct();
+	insert $1;
+snippet testversion
+	Version__c ${1:testVersion} = TestUtils.getRHVersion(${2:testProduct});
+	insert $1;
+snippet testtse
+	User testUser = TestUtils.createTSEUser('tester@test.redhat.com', 'tester@test.redhat.com');
+snippet testatm
+	Account_Members__c ${1:testMember} = TestUtils.getAccountMember(${2:testAccount}, ${3:testUser}, '${4:TAM}');
+	insert $1;
+snippet secureaccount
+	Account ${1:secureAccount} = TestUtils.getAccount();
+	$1 = TestUtils.setSecureSupport($1);
+	insert $1;
+snippet securecontact
+	Contact ${1:internalContact} = TestUtils.getContact(${2:internalAccount});
+	$1 = TestUtils.makeContactInternal($1);
+	$1 = TestUtils.makeContactSecureTech($1);
+	insert $1;

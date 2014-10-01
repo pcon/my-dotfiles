@@ -89,6 +89,7 @@ endif
 command TrailingWhitespace %s/\s\+$//
 
 let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
 let g:snippets_dir = '~/.vim/snippets,~/.vim/my_snippets'
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>

@@ -1,28 +1,40 @@
 [submodule "vim/bundle/pyflakes"]
 	path = vim/bundle/pyflakes
 	url = git://github.com/kevinw/pyflakes-vim.git
+	ignore = dirty
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+	ignore = dirty
 [submodule "vim/bundle/jslint"]
 	path = vim/bundle/jslint
 	url = git://github.com/hallettj/jslint.vim.git
+	ignore = dirty
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
-	ingnore = dirty
+	ignore = dirty
 [submodule "vim/snippets"]
 	path = vim/snippets
 	url = git://github.com/scrooloose/snipmate-snippets.git
+	ignore = dirty
 [submodule "vim/bundle/closetag"]
 	path = vim/bundle/closetag
 	url = git://github.com/docunext/closetag.vim.git
+	ignore = dirty
 [submodule "vim/bundle/delmitmate"]
 	path = vim/bundle/delmitmate
 	url = git://github.com/Raimondi/delimitMate.git
+	ignore = dirty
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = http://github.com/Lokaltog/powerline.git
+	ignore = dirty
 [submodule "vim/bundle/vim-json"]
 	path = vim/bundle/vim-json
 	url = http://github.com/elzr/vim-json.git
+	ignore = dirty
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+	ignore = dirty
