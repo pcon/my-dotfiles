@@ -88,9 +88,14 @@ endif
 
 command TrailingWhitespace %s/\s\+$//
 
+set t_Co=256
+set timeoutlen=50
+
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:snippets_dir = '~/.vim/snippets,~/.vim/my_snippets'
+let g:airline_theme='murmur'
+
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
