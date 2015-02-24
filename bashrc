@@ -110,6 +110,41 @@ function pseq() {
 	for i in $(seq $x $y); do printf "$format" $i; done
 }
 
+function findfile() {
+	name=$1
+	find . -iname "*$name*"
+}
+
+function cb() {
+	local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
+
+	if ! type xclip > /dev/null 2>&1; then
+		echo -e "$_wrn_col""You must have the 'xclip' program installed.\e[0m"
+	elif [[ "$USER" == "root" ]]; then
+		echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
+	else
+		if ! [[ "$( tty )" == /dev/* ]]; then
+			input="$(< /dev/stdin)"
+		else
+			input="$*"
+		fi
+
+		if [ -z "$input" ]; then
+			echo "Copies a string to the clipboard."
+			echo "Usage: cb <string>"
+			echo "       echo <string> | cb"
+		else
+			echo -n "$input" | xclip -selection c
+			if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
+			echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
+		fi
+	fi
+}
+
+function cbf() {
+	cat "$1" | cb;
+}
+
 xset b off &> /dev/null
 
 if [ -e $HOME/.perpetual_screen ]; then
