@@ -145,6 +145,13 @@ function cbf() {
 	cat "$1" | cb;
 }
 
+function xmlformat() {
+	f=$1
+	TMP_NAME="TMP_$RANDOM"
+	cat "$1" | xmllint --format - > "/tmp/$TMP_NAME"
+	mv "/tmp/$TMP_NAME" "$1"
+}
+
 xset b off &> /dev/null
 
 if [ -e $HOME/.perpetual_screen ]; then
