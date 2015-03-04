@@ -116,12 +116,15 @@ function findfile() {
 }
 
 function cb() {
-	local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
+	local _scs_col="\x1B[0;32m"; local _wrn_col='\x1B[1;31m'; local _trn_col='\x1B[0;33m'
 
-	if ! type xclip > /dev/null 2>&1; then
-		echo -e "$_wrn_col""You must have the 'xclip' program installed.\e[0m"
+	XCLIP_LOC=`which xclip`
+	PBCOP_LOC=`which pbcopy`
+
+	if [ -z "$XCLIP_LOC" ] && [ -z "$PBCO_LOC " ]; then
+		echo -e "$_wrn_col""You must have the 'xclip' or 'pbcopy' program installed.\x1B[0m"
 	elif [[ "$USER" == "root" ]]; then
-		echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
+		echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\x1B[0m"
 	else
 		if ! [[ "$( tty )" == /dev/* ]]; then
 			input="$(< /dev/stdin)"
@@ -134,9 +137,13 @@ function cb() {
 			echo "Usage: cb <string>"
 			echo "       echo <string> | cb"
 		else
-			echo -n "$input" | xclip -selection c
-			if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
-			echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
+			if [ -n "$XCLIP_LOC" ]; then
+				echo -n "$input" | xclip -selection c
+			else
+				echo -n "$input" | pbcopy
+			fi
+			if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\x1B[0m"; fi
+			echo -e "$_scs_col""Copied to clipboard:\x1B[0m $input"
 		fi
 	fi
 }
