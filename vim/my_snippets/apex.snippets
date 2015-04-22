@@ -101,3 +101,6 @@ snippet securecontact
 	$1 = TestUtils.makeContactInternal($1);
 	$1 = TestUtils.makeContactSecureTech($1);
 	insert $1;
+snippet testnep
+	Negotiated_Entitlement_Process__c ${1:testNEP} = TestUtils.getNEP(${2:testCase});
+	insert $1;

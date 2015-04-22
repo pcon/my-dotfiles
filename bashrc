@@ -88,6 +88,7 @@ export EDITOR='vim'
 
 alias grep="grep --color"
 alias ls="ls --color=always"
+alias bunyan="bunyan -o short"
 
 if [ -e $HOME/.dircolors ]
 then
@@ -108,6 +109,13 @@ function pseq() {
 	y=$2
 	format="%0${#y}d\n"
 	for i in $(seq $x $y); do printf "$format" $i; done
+}
+
+function xmlformat() {
+	f=$1
+	TMP_NAME="TMP_$RANDOM"
+	cat "$1" | xmllint --format - > "/tmp/$TMP_NAME"
+	mv "/tmp/$TMP_NAME" "$1"
 }
 
 xset b off &> /dev/null

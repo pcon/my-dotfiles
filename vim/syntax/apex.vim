@@ -167,7 +167,7 @@ if !exists("java_ignore_javadoc") && main_syntax != 'jsp'
   syn region javaDocTags	 contained start="{@\(link\|linkplain\|inherit[Dd]oc\|doc[rR]oot\|value\)" end="}"
   syn match  javaDocTags	 contained "@\(param\|exception\|throws\|since\)\s\+\S\+" contains=javaDocParam
   syn match  javaDocParam	 contained "\s\S\+"
-  syn match  javaDocTags	 contained "@\(version\|author\|return\|deprecated\|serial\|serialField\|serialData\)\>"
+  syn match  javaDocTags	 contained "@\(version\|author\|testClasses\|return\|deprecated\|serial\|serialField\|serialData\)\>"
   syn region javaDocSeeTag	 contained matchgroup=javaDocTags start="@see\s\+" matchgroup=NONE end="\_."re=e-1 contains=javaDocSeeTagParam
   syn match  javaDocSeeTagParam  contained @"\_[^"]\+"\|<a\s\+\_.\{-}</a>\|\(\k\|\.\)*\(#\k\+\((\_[^)]\+)\)\=\)\=@ extend
   syntax case match
