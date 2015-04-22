@@ -111,6 +111,48 @@ function pseq() {
 	for i in $(seq $x $y); do printf "$format" $i; done
 }
 
+function findfile() {
+	name=$1
+	find . -iname "*$name*"
+}
+
+function cb() {
+	local _scs_col="\x1B[0;32m"; local _wrn_col='\x1B[1;31m'; local _trn_col='\x1B[0;33m'
+
+	XCLIP_LOC=`which xclip`
+	PBCOP_LOC=`which pbcopy`
+
+	if [ -z "$XCLIP_LOC" ] && [ -z "$PBCO_LOC " ]; then
+		echo -e "$_wrn_col""You must have the 'xclip' or 'pbcopy' program installed.\x1B[0m"
+	elif [[ "$USER" == "root" ]]; then
+		echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\x1B[0m"
+	else
+		if ! [[ "$( tty )" == /dev/* ]]; then
+			input="$(< /dev/stdin)"
+		else
+			input="$*"
+		fi
+
+		if [ -z "$input" ]; then
+			echo "Copies a string to the clipboard."
+			echo "Usage: cb <string>"
+			echo "       echo <string> | cb"
+		else
+			if [ -n "$XCLIP_LOC" ]; then
+				echo -n "$input" | xclip -selection c
+			else
+				echo -n "$input" | pbcopy
+			fi
+			if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\x1B[0m"; fi
+			echo -e "$_scs_col""Copied to clipboard:\x1B[0m $input"
+		fi
+	fi
+}
+
+function cbf() {
+	cat "$1" | cb;
+}
+
 function xmlformat() {
 	f=$1
 	TMP_NAME="TMP_$RANDOM"
