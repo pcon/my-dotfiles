@@ -58,7 +58,7 @@ snippet testattachment
 	File_Attachment__c ${1:testAttachment} = TestUtils.getPublicAttachment(${2:testCase});
 	insert $1;
 snippet testbase
-	String ssoName = '_unittest_sso_: 001';
+	String ssoName = TestUtils.getSSOName();
 
 	Account testAccount = TestUtils.getAccount();
 	insert testAccount;
@@ -88,7 +88,7 @@ snippet testversion
 	Version__c ${1:testVersion} = TestUtils.getRHVersion(${2:testProduct});
 	insert $1;
 snippet testtse
-	User testUser = TestUtils.createTSEUser('tester@test.redhat.com', 'tester@test.redhat.com');
+	User testUser = TestUtils.createTSEUser(TestUtils.getEmailAddress('test.redhat.com'));
 snippet testatm
 	Account_Members__c ${1:testMember} = TestUtils.getAccountMember(${2:testAccount}, ${3:testUser}, '${4:TAM}');
 	insert $1;
@@ -104,3 +104,8 @@ snippet securecontact
 snippet testnep
 	Negotiated_Entitlement_Process__c ${1:testNEP} = TestUtils.getNEP(${2:testCase});
 	insert $1;
+snippet nep
+	Negotiated_Entitlement_Process__c
+snippet testtag
+	Object_Tag__c testTag = TestUtils.getObjectTagForCase();
+	insert testTag;

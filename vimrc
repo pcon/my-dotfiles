@@ -56,6 +56,7 @@ autocmd FileType c set tabstop=3 shiftwidth=3
 autocmd FileType cpp set tabstop=3 shiftwidth=3
 autocmd FileType sql set tabstop=3 shiftwidth=3 nowrap
 autocmd FileType xml set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
+autocmd FileType javascript set tabstop=4 shiftwidth=4 softtabstop=4 nowrap expandtab
 autocmd FileType html set nowrap
 autocmd BufRead,BufNewFile *.txt set tabstop=5 shiftwidth=5 wrap
 autocmd BufRead,BufNewFile mutt* set wrap spell spelllang=en_us spellfile=~/.vim/spellfile.add
@@ -96,7 +97,18 @@ set noshowmode
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:snippets_dir = '~/.vim/snippets,~/.vim/my_snippets'
-let g:airline_theme='murmur'
+"let g:airline_theme='murmur'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jslint']
+let g:syntastic_javascript_jslint_args = ""
 
 nnoremap <F2> :set invpaste paste?<CR>
 nnoremap <F3> :set hlsearch!<CR>

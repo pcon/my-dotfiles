@@ -153,7 +153,9 @@ function cbf() {
 	cat "$1" | cb;
 }
 
-function xmlformat() {
+alias xmlformat="xmllint --format -"
+
+function xmlformat_file() {
 	f=$1
 	TMP_NAME="TMP_$RANDOM"
 	cat "$1" | xmllint --format - > "/tmp/$TMP_NAME"

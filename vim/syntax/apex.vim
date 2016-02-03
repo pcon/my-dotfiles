@@ -1,7 +1,7 @@
 " Vim syntax file " Language:	  Apex
 " Maintainer:	Patrick Connelly <patrick@deadlypenguin.com>
 " URL:		http://www.fleiner.com/vim/syntax/java.vim
-" Last Change:	2010 March 23
+" Last Change:	2015 November 04
 
 " Please check :help java.vim for comments on some of the options available.
 
@@ -48,9 +48,9 @@ syn keyword javaOperator	new instanceof
 syn keyword javaType		boolean char byte short int long float double
 syn keyword javaType		void
 syn keyword javaStatement	return
-syn keyword javaStorageClass	static synchronized transient volatile final strictfp serializable
+syn keyword javaStorageClass	static synchronized transient volatile final strictfp serializable global testMethod
 syn keyword javaExceptions	throw try catch finally
-syn keyword javaAssert		assert
+syn keyword javaAssert		assert assertEquals assertNotEquals
 syn keyword javaMethodDecl	synchronized throws
 syn keyword javaClassDecl	extends implements interface
 " to differentiate the keyword class from MyClass.class we use a match here
@@ -68,7 +68,7 @@ syn keyword javaScopeDecl	public protected private abstract virtual
 if exists("java_highlight_java_lang_ids")
   let java_highlight_all=1
 endif
-if exists("java_highlight_all")  || exists("java_highlight_java")  || exists("java_highlight_java_lang") 
+if exists("java_highlight_all")  || exists("java_highlight_java")  || exists("java_highlight_java_lang")
   " java.lang.*
   syn match javaLangClass "\<System\>"
   syn keyword javaR_JavaLang NegativeArraySizeException ArrayStoreException IllegalStateException RuntimeException IndexOutOfBoundsException UnsupportedOperationException ArrayIndexOutOfBoundsException ArithmeticException ClassCastException EnumConstantNotPresentException StringIndexOutOfBoundsException IllegalArgumentException IllegalMonitorStateException IllegalThreadStateException NumberFormatException NullPointerException TypeNotPresentException SecurityException
@@ -207,7 +207,7 @@ if exists("java_highlight_functions")
     " two things:
     "	1. class names are always capitalized (ie: Button)
     "	2. method names are never capitalized (except constructors, of course)
-    syn region javaFuncDef start=+^\s\+\(\(public\|protected\|private\|static\|abstract\|final\|native\|virtual\|synchronized\)\s\+\)*\(\(void\|boolean\|char\|byte\|short\|int\|long\|float\|double\|\([A-Za-z_][A-Za-z0-9_$]*\.\)*[A-Z][A-Za-z0-9_$]*\)\(<[^>]*>\)\=\(\[\]\)*\s\+[a-z][A-Za-z0-9_$]*\|[A-Z][A-Za-z0-9_$]*\)\s*([^0-9]+ end=+)+ contains=javaScopeDecl,javaType,javaStorageClass,javaComment,javaLineComment,@javaClasses
+    syn region javaFuncDef start=+^\s\+\(\(public\|protected\|private\|static\|global\|with sharing\|without sharing\|abstract\|final\|native\|virtual\|synchronized\|testMethod\)\s\+\)*\(\(void\|boolean\|char\|byte\|short\|int\|long\|float\|double\|\([A-Za-z_][A-Za-z0-9_$]*\.\)*[A-Z][A-Za-z0-9_$]*\)\(<[^>]*>\)\=\(\[\]\)*\s\+[a-z][A-Za-z0-9_$]*\|[A-Z][A-Za-z0-9_$]*\)\s*([^0-9]+ end=+)+ contains=javaScopeDecl,javaType,javaStorageClass,javaComment,javaLineComment,@javaClasses
   endif
   syn match  javaBraces  "[{}]"
   syn cluster javaTop add=javaFuncDef,javaBraces
