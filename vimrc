@@ -97,7 +97,7 @@ set noshowmode
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:snippets_dir = '~/.vim/snippets,~/.vim/my_snippets'
-"let g:airline_theme='murmur'
+let g:airline_theme='murmur'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
