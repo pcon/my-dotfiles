@@ -82,6 +82,7 @@ au BufEnter *.trigger set syntax=apex tabstop=4 shiftwidth=4 softtabstop=4 nowra
 au BufEnter *.page set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
 au BufWritePre *.snippet set binary eol
 au BufWritePost *.snippet set binary eol
+au BufEnter *.handlebars set syntax=html filetype=html
 
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
