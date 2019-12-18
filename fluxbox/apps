@@ -8,3 +8,6 @@
   [Sticky]	{yes}
   [Close]	{yes}
 [end]
+[app] (name=Navigator) (class=Firefox) (role=browser)
+  [Sticky]	{no}
+[end]

@@ -107,9 +107,17 @@ XF86Calculator :exec /usr/bin/gnome-calculator
 
 XF86HomePage :exec /home/pcon/bin/killscreensaver-remote
 
-XF86AudioPlay :exec /usr/bin/mpc -q toggle
-XF86AudioPause :exec /usr/bin/mpc -q toggle
-XF86AudioRaiseVolume :exec /usr/bin/mpc -q next
-XF86AudioNext :exec /usr/bin/mpc -q next
-XF86AudioLowerVolume :exec /usr/bin/mpc -q prev
-XF86AudioPrev :exec /usr/bin/mpc -q prev
+XF86AudioPlay :exec /usr/bin/clementine -t
+XF86AudioPause :exec /usr/bin/clementine -t
+XF86AudioRaiseVolume :exec /usr/bin/clementine -f
+XF86AudioNext :exec /home/pcon/Dropbox/bin/volumedown
+XF86AudioLowerVolume :exec /usr/bin/clementine -r
+XF86AudioPrev :exec /home/pcon/Dropbox/bin/volumeup
+
+Control Shift F :Maximize
+Control Shift Mod1 U :exec /home/pcon/Dropbox/bin/vpnup
+Control Shift Mod1 D :exec /home/pcon/Dropbox/bin/vpndown
+
+Mod1 Escape :exec /usr/bin/rofi -modi combi -show combi -opacity 80
+
+Mod4 Mouse3 :RootMenu

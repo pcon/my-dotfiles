@@ -48,7 +48,7 @@ NC='\e[0m'              # No Color
 # Taken from http://www.opinionatedprogrammer.com/2011/01/colorful-bash-prompt-reflecting-git-status/
 function _git_prompt() {
 	local git_status="`git status -unormal 2>&1`"
-	if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+	if ! [[ "$git_status" =~ not\ a\ git\ repo ]]; then
 		if [[ "$git_status" =~ nothing\ to\ commit ]]; then
 			local ansi=$GREEN
 		elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
